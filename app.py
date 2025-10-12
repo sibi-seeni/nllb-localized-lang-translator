@@ -8,7 +8,7 @@ import torch
 device = "mps" if torch.backends.mps.is_available() else "cpu"
 print("Using device:", device)
 
-MODEL_DIR = "RohanAi/nllb_quantized"
+MODEL_DIR = "facebook/nllb-200-distilled-600M"
 
 # Load tokenizer
 tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
@@ -17,16 +17,6 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
 model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_DIR).to(device)
 
 punct_normalizer = MosesPunctNormalizer(lang="en")
-
-# Language mapping
-langs = {
-    "Tamil": "tam_Taml",
-    "Hindi": "hin_Deva",
-    "French": "fra_Latn",
-    "Spanish": "spa_Latn",
-    "German": "deu_Latn",
-    "Arabic": "arb_Arab"
-}
 
 def translate(text: str, src_lang: str, tgt_lang: str):
     src_code = code_mapping[src_lang]
@@ -53,6 +43,7 @@ def translate(text: str, src_lang: str, tgt_lang: str):
     # Decode output
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
+# Create a list of all available languages from the mapping file
 langs = list(code_mapping.keys())
 
 iface = gr.Interface(
