@@ -35,31 +35,25 @@ This modified version has been updated to run efficiently on **Apple Silicon Mac
 
 ### 1. Clone the repository
 
-    ```bash
     git clone https://github.com/your-username/nllb_quantized_lang_translator.git
     cd nllb_quantized_lang_translator
-    ```
 
 ### 2. Create and activate a virtual environment
-    ```bash
     python3 -m venv myenv
     source myenv/bin/activate
-    ```
+    
 ### 3. Install dependencies
-    ```bash
     pip install -r requirements.txt
-    ```
-    Make sure you're using Python ≥3.8 and a recent version of pip.
+    
+Make sure you're using Python ≥3.8 and a recent version of pip.
     
 ### 4. Run the Gradio app:
-    ```bash
     python app.py
-    ```
 
 ## 🌍 Supported Languages
 Languages include (but are not limited to):
-- Hindi 🇮🇳
 - Tamil 🇮🇳
+- Hindi 🇮🇳
 - French 🇫🇷
 - Spanish 🇪🇸
 - German 🇩🇪
