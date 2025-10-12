@@ -59,7 +59,7 @@ Languages include (but are not limited to):
 - German 🇩🇪
 - Arabic 🇸🇦
 
-More languages can be added using the FLORES-200 codes.
+More languages can be added using the [FLORES-200 codes](https://github.com/facebookresearch/flores/blob/main/flores200/README.md).
 
 ## References
  - [Original Hugging Face Space by RohanAi](https://github.com/Rohanbagulwar/nllb_quantized_lang_translator/)
