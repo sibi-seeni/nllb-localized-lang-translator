@@ -2,10 +2,10 @@
 title: Quantized_lang._Translator
 app_file: app.py
 sdk: gradio
-sdk_version: 5.48.0
+sdk_version: 5.49.1
 ---
 
-# NLLB-FB Language Translator (Apple Silicon Optimized)
+# NLLB Language Translator (Apple Silicon Optimized)
 
 This project is a fork of [Rohan Bagulwar’s Quantized Language Translator](https://huggingface.co/spaces/RohanAi/Quantized_lang._Translator), originally designed for quantized CPU usage.
 
@@ -15,10 +15,11 @@ This modified version has been updated to run efficiently on **Apple Silicon Mac
 
 ## 🔧 Key Changes
 
-- ✅ Removed `bitsandbytes` and 8-bit quantization (not compatible with macOS).
+- ✅ Removed `bitsandbytes` and 8-bit quantization (not compatible with macOS without CoreML).
 - ✅ Switched to Apple's MPS backend for GPU acceleration on Mac.
 - ✅ Compatible with MacBook Air/Pro (M1/M2/M3/M4).
 - ✅ Updated `app.py` and `requirements.txt` to reflect Apple Silicon optimizations.
+- ✅ **Note on the Model:** This app uses Meta’s official [facebook/nllb-200-distilled-600M model](facebook/nllb-200-distilled-600M), running in full precision (float32) on Apple Silicon via PyTorch’s MPS backend.
 
 ---
 
@@ -59,10 +60,10 @@ Languages include (but are not limited to):
 - German 🇩🇪
 - Arabic 🇸🇦
 
-More languages can be added using the [FLORES-200 codes](https://github.com/facebookresearch/flores/blob/main/flores200/README.md).
+A complete list of supported languages is available in the web app's dropdown menus.
 
 ## References
- - [Original Hugging Face Space by Rohan](https://github.com/Rohanbagulwar/nllb_quantized_lang_translator/)
+- [Original Hugging Face Space by Rohan](https://github.com/Rohanbagulwar/nllb_quantized_lang_translator/)
 - [NLLB: No Language Left Behind (Meta AI)](https://ai.facebook.com/research/no-language-left-behind/)
 - [Hugging Face Transformers Documentation](https://huggingface.co/docs/transformers/model_doc/nllb)
 - [PyTorch MPS Documentation](https://docs.pytorch.org/docs/stable/notes/mps.html)
