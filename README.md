@@ -62,7 +62,7 @@ Languages include (but are not limited to):
 More languages can be added using the [FLORES-200 codes](https://github.com/facebookresearch/flores/blob/main/flores200/README.md).
 
 ## References
- - [Original Hugging Face Space by RohanAi](https://github.com/Rohanbagulwar/nllb_quantized_lang_translator/)
+ - [Original Hugging Face Space by Rohan](https://github.com/Rohanbagulwar/nllb_quantized_lang_translator/)
 - [NLLB: No Language Left Behind (Meta AI)](https://ai.facebook.com/research/no-language-left-behind/)
 - [Hugging Face Transformers Documentation](https://huggingface.co/docs/transformers/model_doc/nllb)
 - [PyTorch MPS Documentation](https://docs.pytorch.org/docs/stable/notes/mps.html)
