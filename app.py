@@ -20,6 +20,7 @@ punct_normalizer = MosesPunctNormalizer(lang="en")
 
 # Language mapping
 langs = {
+    "Tamil": "tam_Taml",
     "Hindi": "hin_Deva",
     "French": "fra_Latn",
     "Spanish": "spa_Latn",
