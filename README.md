@@ -36,8 +36,8 @@ This modified version has been updated to run efficiently on **Apple Silicon Mac
 
 ### 1. Clone the repository
 
-    git clone https://github.com/your-username/nllb_quantized_lang_translator.git
-    cd nllb_quantized_lang_translator
+    git clone https://github.com/sibi-seeni/nllb_localized_lang_translator.git
+    cd nllb_localized_lang_translator
 
 ### 2. Create and activate a virtual environment
     python3 -m venv myenv
@@ -69,4 +69,4 @@ A complete list of supported languages is available in the web app's dropdown me
 - [PyTorch MPS Documentation](https://docs.pytorch.org/docs/stable/notes/mps.html)
 
  ## Acknowledgements
- Thanks to Rohan Bagulwar for the original implementation and to the Hugging Face and Meta AI teams for their amazing models and tooling.
+ Thanks to the Hugging Face and Meta AI teams for their amazing models and tooling.
