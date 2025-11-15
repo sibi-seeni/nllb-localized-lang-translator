@@ -51,16 +51,16 @@ df = pd.read_excel("Main dataset.xlsx")
 print("Total rows:", len(df))
 
 # Create new columns for Odia output
-df["odia_translation"] = ""
+df["tamil_translation"] = ""
 
 for idx, text in enumerate(df["prompt"]):
     try:
-        result = translate(text, src_lang="English", tgt_lang="Odia")
-        df.at[idx, "odia_translation"] = result
+        result = translate(text, src_lang="English", tgt_lang="Tamil")
+        df.at[idx, "tamil_translation"] = result
         print(f"Row {idx+1}/{len(df)} translated.")
     except Exception as e:
         print(f"Error at row {idx}: {e}")
-        df.at[idx, "odia_translation"] = ""
+        df.at[idx, "tamil_translation"] = ""
 
 # iface = gr.Interface(
 #     fn=translate,
@@ -74,7 +74,7 @@ for idx, text in enumerate(df["prompt"]):
 # )
 
 # iface.launch(share=True)
-output_path = "dataset_odia.xlsx"
+output_path = "dataset_tamil.xlsx"
 df.to_excel(output_path, index=False)
 
 print("✅ Done! Saved to:", output_path)
