@@ -3,6 +3,8 @@ from sacremoses import MosesPunctNormalizer
 from flores import code_mapping
 import gradio as gr
 import torch
+import pandas as pd
+import openpyxl
 
 # Use MPS (Metal GPU on Apple Silicon) if available
 device = "mps" if torch.backends.mps.is_available() else "cpu"
@@ -43,18 +45,36 @@ def translate(text: str, src_lang: str, tgt_lang: str):
     # Decode output
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-# Create a list of all available languages from the mapping file
-langs = list(code_mapping.keys())
+# # Create a list of all available languages from the mapping file
+# langs = list(code_mapping.keys())
+df = pd.read_excel("Main dataset.xlsx")
+print("Total rows:", len(df))
 
-iface = gr.Interface(
-    fn=translate,
-    inputs=[
-        gr.Textbox(lines=10, label="Input Text"),
-        gr.Dropdown(langs, label="Source Language"),
-        gr.Dropdown(langs, label="Target Language")
-    ],
-    outputs=gr.Textbox(lines=30, label="Translated Text"),
-    title="🌍 Language Translation (Apple MPS Optimized)"
-)
+# Create new columns for Odia output
+df["odia_translation"] = ""
 
-iface.launch(share=True)
+for idx, text in enumerate(df["prompt"]):
+    try:
+        result = translate(text, src_lang="English", tgt_lang="Odia")
+        df.at[idx, "odia_translation"] = result
+        print(f"Row {idx+1}/{len(df)} translated.")
+    except Exception as e:
+        print(f"Error at row {idx}: {e}")
+        df.at[idx, "odia_translation"] = ""
+
+# iface = gr.Interface(
+#     fn=translate,
+#     inputs=[
+#         gr.Textbox(lines=10, label="Input Text"),
+#         gr.Dropdown(langs, label="Source Language"),
+#         gr.Dropdown(langs, label="Target Language")
+#     ],
+#     outputs=gr.Textbox(lines=30, label="Translated Text"),
+#     title="🌍 Language Translation (Apple MPS Optimized)"
+# )
+
+# iface.launch(share=True)
+output_path = "dataset_odia.xlsx"
+df.to_excel(output_path, index=False)
+
+print("✅ Done! Saved to:", output_path)
